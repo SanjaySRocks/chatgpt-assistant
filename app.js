@@ -15,22 +15,17 @@ const io = socketIO(server);
 app.use(cors());
 
 io.on('connection', client => {
-  console.log('a user connected');
+  // console.log('a user connected');
 
-  client.on('message', async (data) =>{
-    console.log(data);
-    
+  client.on('message', async (data) =>{  
     const response = await ChatGPT(data);
-    console.log(response);
     client.emit('aimessage', response);
 
   })
 
   client.on('disconnect', () => { 
-    console.log("a user disconnected")
+    // console.log("a user disconnected")
    });
-
-  //  client.emit('message', "Hello");
 });
 
 const PORT = process.env.PORT || 3300;
