@@ -1,14 +1,8 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+// import { useEffect } from 'react';
 import ChatBox from './components/ChatBox';
 
 function App() {
-  useEffect(() => {
-
-
-  }, []);
-
-
 
   return (
     <div className="App">
