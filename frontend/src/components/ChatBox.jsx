@@ -5,7 +5,6 @@ import io from 'socket.io-client';
 
 
 const ChatBox = (props) => {
-  const websocket_url = process.env.WS_URL;
 
   const [chats, setChats] = useState([]);
   const [userMessage, setUserMessage] = useState('');
@@ -25,10 +24,10 @@ const ChatBox = (props) => {
   }
 
   useEffect(() => {
-    
-    // Replace 'http://localhost:3300' with your Socket.IO server address
+    const websocket_url = process.env.REACT_APP_WS_URL;
+
     const socket = io(websocket_url, {
-      transports: ['websocket'], // Use only WebSocket transport
+      transports: ['websocket'],
     });
 
     // Connection opened
